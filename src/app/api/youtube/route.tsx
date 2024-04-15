@@ -1,4 +1,4 @@
-import { NextApiRequest } from "next";
+import { NextRequest } from "next/server";
 import { getInfo } from "ytdl-core";
 
 type accType =
@@ -8,7 +8,7 @@ type accType =
       link: string;
     }[];
 
-export const GET = async (req: NextApiRequest) => {
+export const GET = async (req: NextRequest) => {
   if (!req?.url)
     return Response.json({ success: false, msg: "Please give valid url" });
 
